@@ -3897,7 +3897,7 @@ end
 spawn(function()
     while wait(.1) do 
     pcall(function()
-    if  _G.Auto_Farmo or Clip == true or _G.Auto_Farm_Dun or _G.Auto_Farm_Gem then
+    if  _G.Auto_Farm or Clip == true or _G.Auto_Farm_Dun or _G.Auto_Farm_Gem then
     local Xd = Instance.new("Part")
     Xd.Name = "xd"
     Xd.Parent = game.Workspace
