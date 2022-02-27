@@ -10,6 +10,13 @@ spawn(function()
     end
 end)
 
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
 	do  local ui =  game:GetService("CoreGui"):FindFirstChild("redui")  if ui then ui:Destroy() end end
 
 	local UserInputService = game:GetService("UserInputService")
@@ -76,7 +83,6 @@ end)
 					input.Changed:Connect(
 						function()
 							if input.UserInputState == Enum.UserInputState.End then
-								Dragging = false
 							end
 						end
 					)
@@ -178,7 +184,7 @@ end)
 		NameReal.Size = UDim2.new(0, 136, 0, 34)
 		NameReal.Font = Enum.Font.GothamBold
 		NameReal.Text = tostring(text)
-		NameReal.TextColor3 = Color3.fromRGB(0,250,154)
+		NameReal.TextColor3 = Color3.fromRGB(150,250,154)
 		NameReal.TextSize = 14.000
 
 
@@ -221,7 +227,7 @@ end)
 		ScrollingFrame_Menubar.BorderSizePixel = 0
 		ScrollingFrame_Menubar.Size = UDim2.new(0, 500, 0, 35)
 		ScrollingFrame_Menubar.CanvasSize = UDim2.new(2, 0, 0, 0)
-		ScrollingFrame_Menubar.ScrollBarImageColor3 = Color3.fromRGB(0,250,154)
+		ScrollingFrame_Menubar.ScrollBarImageColor3 = Color3.fromRGB(150,250,154)
 		ScrollingFrame_Menubar.ScrollBarThickness = 3
 
 
@@ -314,11 +320,11 @@ end)
 
 			txdlid.Parent = TitleFrame
 			txdlid.Name = "TextLabel_Tap"
-			txdlid.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			txdlid.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			txdlid.Size =UDim2.new(0, 160, 0,25 )
 			txdlid.Font = Enum.Font.GothamBold
 			txdlid.Text = titel
-			txdlid.TextColor3 = Color3.fromRGB(0,250,154)
+			txdlid.TextColor3 = Color3.fromRGB(150,250,154)
 			txdlid.TextSize = 13.000
 			txdlid.AnchorPoint = Vector2.new(0.5, 0.5)
 			txdlid.Position = UDim2.new(0.23, 0, 0.3, 0)
@@ -330,7 +336,7 @@ end)
 			LableFrame.Name = "LableFrame"
 			LableFrame.Parent = TitleFrame
 			LableFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-			LableFrame.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			LableFrame.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			LableFrame.BorderSizePixel = 0
 			LableFrame.Position =  UDim2.new(0.36, 0, 0.67,0)
 			LableFrame.Size = UDim2.new(0, 260, 0,25 )
@@ -341,7 +347,7 @@ end)
 
 			TextNoti.Parent = LableFrame
 			TextNoti.Name = "TextLabel_Tap"
-			TextNoti.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			TextNoti.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			TextNoti.Size =UDim2.new(0, 260, 0,25 )
 			TextNoti.Font = Enum.Font.GothamBold
 			TextNoti.Text = text
@@ -359,7 +365,7 @@ end)
 			Time.Name = "Time"
 			Time.Parent = TitleFrame
 	--Time.AnchorPoint = Vector2.new(0.5, 0.5)
-			Time.BackgroundColor3 =  Color3.fromRGB(0,250,154)
+			Time.BackgroundColor3 =  Color3.fromRGB(150,250,154)
 			Time.BorderSizePixel = 0
 			Time.Position =  UDim2.new(0, 0, 0.,0)
 			Time.Size = UDim2.new(0, 0,0,0)
@@ -411,7 +417,7 @@ end)
 
 			TextLabel_Tap.Parent = Frame_Tap
 			TextLabel_Tap.Name = "TextLabel_Tap"
-			TextLabel_Tap.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			TextLabel_Tap.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			TextLabel_Tap.Position = UDim2.new(0.5, 0, 0.8, 0)
 			TextLabel_Tap.Size = UDim2.new(0, 0, 0, 0)
 			TextLabel_Tap.Font = Enum.Font.SourceSans
@@ -466,7 +472,7 @@ end)
 					TweenService:Create(
 						TextButton_Tap,
 						TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{TextColor3 = Color3.fromRGB(0,250,154)}
+						{TextColor3 = Color3.fromRGB(150,250,154)}
 					):Play()
 				end
 			end)
@@ -480,7 +486,7 @@ end)
 				TweenService:Create(
 					TextButton_Tap,
 					TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-					{TextColor3 = Color3.fromRGB(0,250,154)}
+					{TextColor3 = Color3.fromRGB(150,250,154)}
 				):Play()
 
 				MainPage.Visible = true
@@ -491,11 +497,11 @@ end)
 
 			ScrollingFrame_Pagefrist.Parent = MainPage
 			ScrollingFrame_Pagefrist.Active = true
-			ScrollingFrame_Pagefrist.BackgroundColor3 = Color3.fromRGB(23, 23, 23) -- 0,250,154
+			ScrollingFrame_Pagefrist.BackgroundColor3 = Color3.fromRGB(23, 23, 23) -- 150,250,154
 			ScrollingFrame_Pagefrist.BorderSizePixel = 0
 			ScrollingFrame_Pagefrist.Size = UDim2.new(0, 518, 0, 375)
 			ScrollingFrame_Pagefrist.ScrollBarThickness = 4
-			ScrollingFrame_Pagefrist.ScrollBarImageColor3 = Color3.fromRGB(0,250,154) -- 0,250,154
+			ScrollingFrame_Pagefrist.ScrollBarImageColor3 = Color3.fromRGB(150,250,154) -- 150,250,154
 
 			local UIGridLayout_Pagefrist = Instance.new("UIGridLayout")
 			local UIPadding_Pagefrist = Instance.new("UIPadding")
@@ -530,7 +536,7 @@ end)
 				ScrollingFrame_Pageframe.Parent = Pageframe
 				ScrollingFrame_Pageframe.Active = true
 				ScrollingFrame_Pageframe.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-				ScrollingFrame_Pageframe.BorderColor3 = Color3.fromRGB(0,250,154)
+				ScrollingFrame_Pageframe.BorderColor3 = Color3.fromRGB(150,250,154)
 				ScrollingFrame_Pageframe.BorderSizePixel = 1
 				ScrollingFrame_Pageframe.Position = UDim2.new(0, 0, -0.0101253344, 0)
 				ScrollingFrame_Pageframe.Size = UDim2.new(0, 240, 0, 340)
@@ -597,7 +603,7 @@ end)
 
 				TextButton_2_Toggle.Parent = TextButton_Toggle
 				TextButton_2_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
-		--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_2_Toggle.BorderSizePixel = 0
 				TextButton_2_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_2_Toggle.Position = UDim2.new(0.9, 0, 0.5, 0)
@@ -618,7 +624,7 @@ end)
 
 				TextButton_3_Toggle.Parent = TextButton_2_Toggle
 				TextButton_3_Toggle.BackgroundColor3 = Color3.fromRGB(255, 255,255)
-		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_3_Toggle.BorderSizePixel = 0
 				TextButton_3_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_3_Toggle.Position = UDim2.new(0.1, 0, 0.5, 0)
@@ -639,7 +645,7 @@ end)
 
 				TextButton_4_Toggle.Parent = TextButton_3_Toggle
 				TextButton_4_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155,155)
-		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_4_Toggle.BorderSizePixel = 0
 				TextButton_4_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_4_Toggle.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -725,12 +731,12 @@ end)
 					TweenService:Create(
 						TextButton_4_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_3_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_2_Toggle,
@@ -767,12 +773,12 @@ end)
 				TweenService:Create(
 					TextButton_4_Toggle,
 					TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-					{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+					{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 				):Play()
 				TweenService:Create(
 					TextButton_3_Toggle,
 					TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-					{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+					{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 				):Play()
 				TweenService:Create(
 					TextButton_2_Toggle,
@@ -843,7 +849,7 @@ end)
 
 				ButtonFrame.Name = "ButtonFrame"
 				ButtonFrame.Parent = ScrollingFrame_Pageframe
-				ButtonFrame.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				ButtonFrame.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				ButtonFrame.BorderSizePixel = 0
 				ButtonFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				ButtonFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -859,14 +865,14 @@ end)
 				MheeFrameStroke.Name = ""
 				MheeFrameStroke.Parent = ButtonFrame
 				MheeFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-				MheeFrameStroke.Color = Color3.fromRGB(0,250,154)
+				MheeFrameStroke.Color = Color3.fromRGB(150,250,154)
 				MheeFrameStroke.Transparency = 0.7
 
 				local Button = Instance.new("TextButton")
 
 				Button.Parent = ButtonFrame
 				Button.Name = "Button"
-				Button.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				Button.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				Button.Size = UDim2.new(0,150, 0, 25)
 				Button.Font = Enum.Font.SourceSansSemibold
 				Button.Text = tostring(text)
@@ -953,7 +959,7 @@ end)
 
 				SliderFrame.Name = "SliderFrame"
 				SliderFrame.Parent = ScrollingFrame_Pageframe
-				SliderFrame.BackgroundColor3 =  Color3.fromRGB(28, 28, 28)-- Color3.fromRGB(0,250,154)
+				SliderFrame.BackgroundColor3 =  Color3.fromRGB(28, 28, 28)-- Color3.fromRGB(150,250,154)
 				SliderFrame.BorderSizePixel = 0
 				SliderFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				SliderFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -973,7 +979,7 @@ end)
 				SliderFrameStroke.Name = ""
 				SliderFrameStroke.Parent = SliderFrame
 				SliderFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-				SliderFrameStroke.Color = Color3.fromRGB(0,250,154)
+				SliderFrameStroke.Color = Color3.fromRGB(150,250,154)
 				SliderFrameStroke.Transparency = 0.7
 
 
@@ -1077,7 +1083,7 @@ end)
 
 				MainValue.Name = "MainValue"
 				MainValue.Parent = PartValue
-				MainValue.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				MainValue.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				MainValue.Size = UDim2.new((de or 0) / max, 0, 0, 5)
 				MainValue.BackgroundTransparency = 0
 				MainValue.BorderSizePixel = 0
@@ -1125,7 +1131,7 @@ end)
 				Addvalue.Position = UDim2.new(0.85, 0, 0.35, 0)
 				Addvalue.Size = UDim2.new(0, 15, 0, 15)
 				Addvalue.Image = "http://www.roblox.com/asset/?id=6035067836"
-				Addvalue.ImageColor3 =  Color3.fromRGB(0,250,154)
+				Addvalue.ImageColor3 =  Color3.fromRGB(150,250,154)
 
 				local Deletevalue = Instance.new("ImageButton")
 
@@ -1136,14 +1142,14 @@ end)
 				Deletevalue.Position = UDim2.new(0.7, 0, 0.35, 0)
 				Deletevalue.Size = UDim2.new(0, 15, 0, 15)
 				Deletevalue.Image = "http://www.roblox.com/asset/?id=6035047377"
-				Deletevalue.ImageColor3 =  Color3.fromRGB(0,250,154)
+				Deletevalue.ImageColor3 =  Color3.fromRGB(150,250,154)
 
 
 				local TextButton_2_Toggle = Instance.new("TextButton")
 
 				TextButton_2_Toggle.Parent = ValueFrame
 				TextButton_2_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
-		--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_2_Toggle.BorderSizePixel = 0
 				TextButton_2_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_2_Toggle.Position = UDim2.new(1.25, 0, 0.4, 0)
@@ -1164,7 +1170,7 @@ end)
 
 				TextButton_3_Toggle.Parent = TextButton_2_Toggle
 				TextButton_3_Toggle.BackgroundColor3 = Color3.fromRGB(255, 255,255)
-		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_3_Toggle.BorderSizePixel = 0
 				TextButton_3_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_3_Toggle.Position = UDim2.new(0.1, 0, 0.5, 0)
@@ -1185,7 +1191,7 @@ end)
 
 				TextButton_4_Toggle.Parent = TextButton_3_Toggle
 				TextButton_4_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155,155)
-		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+		--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 				TextButton_4_Toggle.BorderSizePixel = 0
 				TextButton_4_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 				TextButton_4_Toggle.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -1439,12 +1445,12 @@ end)
 						TweenService:Create(
 							TextButton_4_Toggle,
 							TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+							{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 						):Play()
 						TweenService:Create(
 							TextButton_3_Toggle,
 							TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+							{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 						):Play()
 						TweenService:Create(
 							TextButton_2_Toggle,
@@ -1484,12 +1490,12 @@ end)
 					TweenService:Create(
 						TextButton_4_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_3_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_2_Toggle,
@@ -1512,7 +1518,7 @@ end)
 
 				SliderFrame.Name = "SliderFrame"
 				SliderFrame.Parent = ScrollingFrame_Pageframe
-				SliderFrame.BackgroundColor3 =  Color3.fromRGB(28, 28, 28)-- Color3.fromRGB(0,250,154)
+				SliderFrame.BackgroundColor3 =  Color3.fromRGB(28, 28, 28)-- Color3.fromRGB(150,250,154)
 				SliderFrame.BorderSizePixel = 0
 				SliderFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				SliderFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1532,7 +1538,7 @@ end)
 				SliderFrameStroke.Name = ""
 				SliderFrameStroke.Parent = SliderFrame
 				SliderFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-				SliderFrameStroke.Color = Color3.fromRGB(0,250,154)
+				SliderFrameStroke.Color = Color3.fromRGB(150,250,154)
 				SliderFrameStroke.Transparency = 0.7
 
 
@@ -1636,7 +1642,7 @@ end)
 
 				MainValue.Name = "MainValue"
 				MainValue.Parent = PartValue
-				MainValue.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				MainValue.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				MainValue.Size = UDim2.new((de or 0) / max, 0, 0, 5)
 				MainValue.BackgroundTransparency = 0
 				MainValue.BorderSizePixel = 0
@@ -1684,7 +1690,7 @@ end)
 				Addvalue.Position = UDim2.new(0.85, 0, 0.35, 0)
 				Addvalue.Size = UDim2.new(0, 15, 0, 15)
 				Addvalue.Image = "http://www.roblox.com/asset/?id=6035067836"
-				Addvalue.ImageColor3 =  Color3.fromRGB(0,250,154)
+				Addvalue.ImageColor3 =  Color3.fromRGB(150,250,154)
 
 				local Deletevalue = Instance.new("ImageButton")
 
@@ -1695,7 +1701,7 @@ end)
 				Deletevalue.Position = UDim2.new(0.7, 0, 0.35, 0)
 				Deletevalue.Size = UDim2.new(0, 15, 0, 15)
 				Deletevalue.Image = "http://www.roblox.com/asset/?id=6035047377"
-				Deletevalue.ImageColor3 =  Color3.fromRGB(0,250,154)
+				Deletevalue.ImageColor3 =  Color3.fromRGB(150,250,154)
 
 				local function move(input)
 					local pos =
@@ -1861,7 +1867,7 @@ end)
 
 				DropFrame.Name = "DropFrame"
 				DropFrame.Parent = ScrollingFrame_Pageframe
-				DropFrame.BackgroundColor3 =  Color3.fromRGB(23, 23, 23)-- Color3.fromRGB(0,250,154)
+				DropFrame.BackgroundColor3 =  Color3.fromRGB(23, 23, 23)-- Color3.fromRGB(150,250,154)
 				DropFrame.BorderSizePixel = 0
 				DropFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				DropFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1881,7 +1887,7 @@ end)
 				DropFrameStroke.Name = ""
 				DropFrameStroke.Parent = DropFrame
 				DropFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-				DropFrameStroke.Color = Color3.fromRGB(0,250,154)
+				DropFrameStroke.Color = Color3.fromRGB(150,250,154)
 				DropFrameStroke.Transparency = 0.7
 
 
@@ -1892,7 +1898,7 @@ end)
 
 				LabelFrameDrop.Parent = DropFrame
 				LabelFrameDrop.Name = "LabelFrameDrop"
-				LabelFrameDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				LabelFrameDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				LabelFrameDrop.Position = UDim2.new(0., 0, 0., 0)
 				LabelFrameDrop.Size =    UDim2.new(0, 213, 0, 30)
 				LabelFrameDrop.Font = Enum.Font.SourceSansSemibold
@@ -1908,7 +1914,7 @@ end)
 
 				TextLabel_TapDrop.Parent = LabelFrameDrop
 				TextLabel_TapDrop.Name = "TextLabel_TapDrop"
-				TextLabel_TapDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				TextLabel_TapDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				TextLabel_TapDrop.Position = UDim2.new(0.04, 0, 0.14, 0)
 				TextLabel_TapDrop.Size =    UDim2.new(0, 140, 0, 20)
 				TextLabel_TapDrop.Font = Enum.Font.SourceSansSemibold
@@ -1962,7 +1968,7 @@ end)
 
 				ButtonDrop.Parent = DropFrame
 				ButtonDrop.Name = "ButtonDrop"
-				ButtonDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				ButtonDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				ButtonDrop.Size = UDim2.new(0, 213, 0, 30)
 				ButtonDrop.Font = Enum.Font.SourceSansSemibold
 				ButtonDrop.Text = ""
@@ -1994,7 +2000,7 @@ end)
 
 					ListFrame.Name = "ListFrame"
 					ListFrame.Parent = ScolDown
-					ListFrame.BackgroundColor3 =  Color3.fromRGB(22553, 23, 23)-- Color3.fromRGB(0,250,154)
+					ListFrame.BackgroundColor3 =  Color3.fromRGB(22553, 23, 23)-- Color3.fromRGB(150,250,154)
 					ListFrame.BorderSizePixel = 0
 					ListFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 					ListFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2006,7 +2012,7 @@ end)
 
 					TextLabel_TapDro2p.Parent = ListFrame
 					TextLabel_TapDro2p.Name =  tostring(v).."Dropdown"
-					TextLabel_TapDro2p.BackgroundColor3 = Color3.fromRGB(0,250,154)
+					TextLabel_TapDro2p.BackgroundColor3 = Color3.fromRGB(150,250,154)
 					TextLabel_TapDro2p.Position = UDim2.new(0.5, 0, 0.5, 0)
 					TextLabel_TapDro2p.Size =  UDim2.new(0, 180, 0, 30)
 					TextLabel_TapDro2p.Font = Enum.Font.SourceSansSemibold
@@ -2021,7 +2027,7 @@ end)
 
 					ButtonDrop2.Parent = ListFrame
 					ButtonDrop2.Name = "ButtonDrop2"
-					ButtonDrop2.BackgroundColor3 = Color3.fromRGB(0,250,154)
+					ButtonDrop2.BackgroundColor3 = Color3.fromRGB(150,250,154)
 					ButtonDrop2.Size = UDim2.new(0, 213, 0, 30)
 					ButtonDrop2.Font = Enum.Font.SourceSansSemibold
 					ButtonDrop2.Text = ""
@@ -2160,7 +2166,7 @@ end)
 
 				ListFrame.Name = "ListFrame"
 				ListFrame.Parent = ScolDown
-				ListFrame.BackgroundColor3 =  Color3.fromRGB(22553, 23, 23)-- Color3.fromRGB(0,250,154)
+				ListFrame.BackgroundColor3 =  Color3.fromRGB(22553, 23, 23)-- Color3.fromRGB(150,250,154)
 				ListFrame.BorderSizePixel = 0
 				ListFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				ListFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2172,7 +2178,7 @@ end)
 
 				TextLabel_TapDro2p.Parent = ListFrame
 				TextLabel_TapDro2p.Name =  tostring(t).."Dropdown"
-				TextLabel_TapDro2p.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				TextLabel_TapDro2p.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				TextLabel_TapDro2p.Position = UDim2.new(0.5, 0, 0.5, 0)
 				TextLabel_TapDro2p.Size =  UDim2.new(0, 180, 0, 30)
 				TextLabel_TapDro2p.Font = Enum.Font.SourceSansSemibold
@@ -2187,7 +2193,7 @@ end)
 
 				ButtonDrop2.Parent = ListFrame
 				ButtonDrop2.Name = "ButtonDrop2"
-				ButtonDrop2.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				ButtonDrop2.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				ButtonDrop2.Size = UDim2.new(0, 213, 0, 30)
 				ButtonDrop2.Font = Enum.Font.SourceSansSemibold
 				ButtonDrop2.Text = ""
@@ -2255,7 +2261,7 @@ end)
 
 			DropFrame.Name = "DropFrame"
 			DropFrame.Parent = ScrollingFrame_Pageframe
-			DropFrame.BackgroundColor3 =  Color3.fromRGB(23, 23, 23)-- Color3.fromRGB(0,250,154)
+			DropFrame.BackgroundColor3 =  Color3.fromRGB(23, 23, 23)-- Color3.fromRGB(150,250,154)
 			DropFrame.BorderSizePixel = 0
 			DropFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 			DropFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2275,7 +2281,7 @@ end)
 			DropFrameStroke.Name = ""
 			DropFrameStroke.Parent = DropFrame
 			DropFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-			DropFrameStroke.Color = Color3.fromRGB(0,250,154)
+			DropFrameStroke.Color = Color3.fromRGB(150,250,154)
 			DropFrameStroke.Transparency = 0.7
 
 
@@ -2286,7 +2292,7 @@ end)
 
 			LabelFrameDrop.Parent = DropFrame
 			LabelFrameDrop.Name = "LabelFrameDrop"
-			LabelFrameDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			LabelFrameDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			LabelFrameDrop.Position = UDim2.new(0., 0, 0., 0)
 			LabelFrameDrop.Size =    UDim2.new(0, 213, 0, 30)
 			LabelFrameDrop.Font = Enum.Font.SourceSansSemibold
@@ -2302,7 +2308,7 @@ end)
 
 			TextLabel_TapDrop.Parent = LabelFrameDrop
 			TextLabel_TapDrop.Name = "TextLabel_TapDrop"
-			TextLabel_TapDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			TextLabel_TapDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			TextLabel_TapDrop.Position = UDim2.new(0.04, 0, 0.14, 0)
 			TextLabel_TapDrop.Size =    UDim2.new(0, 140, 0, 20)
 			TextLabel_TapDrop.Font = Enum.Font.SourceSansSemibold
@@ -2356,7 +2362,7 @@ end)
 
 			ButtonDrop.Parent = DropFrame
 			ButtonDrop.Name = "ButtonDrop"
-			ButtonDrop.BackgroundColor3 = Color3.fromRGB(0,250,154)
+			ButtonDrop.BackgroundColor3 = Color3.fromRGB(150,250,154)
 			ButtonDrop.Size = UDim2.new(0, 213, 0, 30)
 			ButtonDrop.Font = Enum.Font.SourceSansSemibold
 			ButtonDrop.Text = ""
@@ -2413,8 +2419,8 @@ end)
 				local farmtoglist = Instance.new("TextButton")
 
 				farmtoglist.Parent = listtextbutton
-				farmtoglist.BackgroundColor3 = Color3.fromRGB(0,250,154)
-				farmtoglist.BorderColor3 = Color3.fromRGB(0,250,154)
+				farmtoglist.BackgroundColor3 = Color3.fromRGB(150,250,154)
+				farmtoglist.BorderColor3 = Color3.fromRGB(150,250,154)
 				farmtoglist.BorderSizePixel = 0
 				farmtoglist.AnchorPoint = Vector2.new(0.5, 0.5)
 				farmtoglist.Position = UDim2.new(0.1, 0, 0.5, 0)
@@ -2430,7 +2436,7 @@ end)
 
 				farmtoglist2.Parent = farmtoglist
 				farmtoglist2.BackgroundColor3 = Color3.fromRGB(32, 32,32)
-				farmtoglist2.BorderColor3 = Color3.fromRGB(0,250,154)
+				farmtoglist2.BorderColor3 = Color3.fromRGB(150,250,154)
 				farmtoglist2.BorderSizePixel = 0
 				farmtoglist2.AnchorPoint = Vector2.new(0.5, 0.5)
 				farmtoglist2.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2640,7 +2646,7 @@ end)
 				local TextFrame2 = Instance.new("TextBox")
 
 				TextFrame2.Parent = FrameBox
-				TextFrame2.BackgroundColor3 = Color3.fromRGB(0,250,154)
+				TextFrame2.BackgroundColor3 = Color3.fromRGB(150,250,154)
 				TextFrame2.BorderSizePixel = 0
 				TextFrame2.ClipsDescendants = true
 				TextFrame2.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -2666,7 +2672,7 @@ end)
 				TextBoxStroke.Name = ""
 				TextBoxStroke.Parent = FrameBox
 				TextBoxStroke.LineJoinMode = Enum.LineJoinMode.Round
-				TextBoxStroke.Color = Color3.fromRGB(0,250,154)
+				TextBoxStroke.Color = Color3.fromRGB(150,250,154)
 				TextBoxStroke.Transparency = 0.7
 
 
@@ -2765,7 +2771,7 @@ end)
 				BindStroke.Name = ""
 				BindStroke.Parent = BindFrame
 				BindStroke.LineJoinMode = Enum.LineJoinMode.Round
-				BindStroke.Color = Color3.fromRGB(0,250,154)
+				BindStroke.Color = Color3.fromRGB(150,250,154)
 				BindStroke.Transparency = 0.7
 
 				local LabelBind = Instance.new("TextLabel")
@@ -2902,7 +2908,7 @@ end)
 
 				LineFrame.Name = "LineFrame"
 				LineFrame.Parent = ScrollingFrame_Pageframe
-				LineFrame.BackgroundColor3 =  Color3.fromRGB(127,255,212)
+				LineFrame.BackgroundColor3 =  Color3.fromRGB(150,250,154)
 				LineFrame.BorderSizePixel = 0
     			LineFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				LineFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -2946,7 +2952,7 @@ end)
 				MheeFrameStroke.Name = ""
 				MheeFrameStroke.Parent = Pixker
 				MheeFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-				MheeFrameStroke.Color = Color3.fromRGB(0,250,154)
+				MheeFrameStroke.Color = Color3.fromRGB(150,250,154)
 				MheeFrameStroke.Transparency = 0.7
 
 
@@ -3043,7 +3049,7 @@ end)
 
 			TextButton_2_Toggle.Parent = TextFrameColor
 			TextButton_2_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155, 155)
-	--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+	--        TextButton_2_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 			TextButton_2_Toggle.BorderSizePixel = 0
 			TextButton_2_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextButton_2_Toggle.Position = UDim2.new(0.2, 0, 1.87, 0)
@@ -3064,7 +3070,7 @@ end)
 
 			TextButton_3_Toggle.Parent = TextButton_2_Toggle
 			TextButton_3_Toggle.BackgroundColor3 = Color3.fromRGB(255, 255,255)
-	--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+	--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 			TextButton_3_Toggle.BorderSizePixel = 0
 			TextButton_3_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextButton_3_Toggle.Position = UDim2.new(0.1, 0, 0.5, 0)
@@ -3085,7 +3091,7 @@ end)
 
 			TextButton_4_Toggle.Parent = TextButton_3_Toggle
 			TextButton_4_Toggle.BackgroundColor3 = Color3.fromRGB(155, 155,155)
-	--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(0,250,154)
+	--        TextButton_3_Toggle.BorderColor3 = Color3.fromRGB(150,250,154)
 			TextButton_4_Toggle.BorderSizePixel = 0
 			TextButton_4_Toggle.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextButton_4_Toggle.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -3124,7 +3130,7 @@ end)
 
 			TextButton_3_Toggle2.Parent = TextButton_2_Toggle
 			TextButton_3_Toggle2.BackgroundColor3 = Color3.fromRGB(32, 32,32)
-			TextButton_3_Toggle2.BorderColor3 = Color3.fromRGB(0,250,154)
+			TextButton_3_Toggle2.BorderColor3 = Color3.fromRGB(150,250,154)
 			TextButton_3_Toggle2.BorderSizePixel = 0
 			TextButton_3_Toggle2.AnchorPoint = Vector2.new(0.5, 0.5)
 			TextButton_3_Toggle2.Position = UDim2.new(1.9, 0, 0.5, 0)
@@ -3228,8 +3234,8 @@ end)
 			local BTN_XD = Instance.new("TextButton")
 
 			BTN_XD.Parent = TextFrameColor
-			BTN_XD.BackgroundColor3 = Color3.fromRGB(0,250,154)
-			BTN_XD.BorderColor3 = Color3.fromRGB(0,250,154)
+			BTN_XD.BackgroundColor3 = Color3.fromRGB(150,250,154)
+			BTN_XD.BorderColor3 = Color3.fromRGB(150,250,154)
 			BTN_XD.BorderSizePixel = 0
 			BTN_XD.AnchorPoint = Vector2.new(0.5, 0.5)
 			BTN_XD.Position = UDim2.new(0.8, 0, 1.9, 0)
@@ -3254,7 +3260,7 @@ end)
 			MheeFrameStroke.Name = ""
 			MheeFrameStroke.Parent = BTN_XD
 			MheeFrameStroke.LineJoinMode = Enum.LineJoinMode.Round
-			MheeFrameStroke.Color = Color3.fromRGB(0,250,154)
+			MheeFrameStroke.Color = Color3.fromRGB(150,250,154)
 			MheeFrameStroke.Transparency = 0.7
 
 
@@ -3266,12 +3272,12 @@ end)
 					TweenService:Create(
 						TextButton_4_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_3_Toggle,
 						TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =  Color3.fromRGB(0,250,154)} -- UDim2.new(0, 128, 0, 25)
+						{BackgroundColor3 =  Color3.fromRGB(150,250,154)} -- UDim2.new(0, 128, 0, 25)
 					):Play()
 					TweenService:Create(
 						TextButton_2_Toggle,
@@ -3604,7 +3610,7 @@ end)
 				LabelStroke.Name = ""
 				LabelStroke.Parent = LabelFrame
 				LabelStroke.LineJoinMode = Enum.LineJoinMode.Round
-				LabelStroke.Color = Color3.fromRGB(0,250,154)
+				LabelStroke.Color = Color3.fromRGB(150,250,154)
 				LabelStroke.Transparency = 0.7
 
 				LabelFrame.MouseEnter:Connect(function()
@@ -4192,7 +4198,8 @@ spawn(function()
                     for i,v in pairs(game:GetService("Workspace").WORLD[_G.MAP].Arenas[_G.Dun].Enemies:GetChildren()) do
                         pcall(function()
                             repeat game:GetService("RunService").Stepped:wait(0.3)
-                                TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,4))
+                                v.HumanoidRootPart.CanCollide = false
+                                TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
                             until v.Humanoid.Health <= 0 or not v.Parent or not v or _G.Auto_Farm == false and _G.Auto_Farm_Dun == false or _G.Auto_Farm == false and _G.Auto_Farm_Dun == nil or  _G.Auto_Farm == nil and _G.Auto_Farm_Dun == false
                             wait(1.5)
@@ -4209,7 +4216,7 @@ spawn(function()
             for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
                 if v.Name == "Samurai" then
                     repeat game:GetService("RunService").Stepped:wait(0.3)
-                        TP(v.HumanoidRootPart.CFrame*CFrame.new(0,-5,0))
+                        TP(v.HumanoidRootPart.CFrame*CFrame.new(0,-3,0))
                         game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
                     until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v or not v.Parent
                     wait(1.5)
