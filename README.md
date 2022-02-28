@@ -3846,10 +3846,22 @@ function CheckQuest()
         _G.Dun = "Kimoyo Ward Arena"
         _G.MAP = "Hero Academy Region"
         _G.PosMon = CFrame.new(6134.97412109375, 164.1680908203125, 667.257568359375)
-    elseif Lv >= 115 then
+    elseif Lv >= 115 and Lv < 200 then
         _G.Dun = "Sports Stadium Arena"
         _G.MAP = "Hero Academy Region"
         _G.PosMon = CFrame.new(7093.54833984375, 221.96817016601562, 1070.5576171875)
+    elseif Lv >= 200 and Lv < 300 then
+        _G.Dun = "Cactoo Island Arena"
+        _G.MAP = "Piece Region"
+        _G.PosMon = CFrame.new(6330.234375, 189.6277618408203, 6140.89892578125)
+    elseif Lv >= 300 and Lv < 400 then
+        _G.Dun = "Giant Tree Island Arena"
+        _G.MAP = "Piece Region"
+        _G.PosMon = CFrame.new(4818.4912109375, 200.5469512939453, 6771.4248046875)
+    elseif Lv >= 400 then
+        _G.Dun = "Punk Danger Island Arena"
+        _G.MAP = "Piece Region"
+        _G.PosMon = CFrame.new(4943.06005859375, 184.05709838867188, 4900.8759765625)
     end
 end
 
@@ -3872,6 +3884,12 @@ function CheckDun()
         _G.PosMon = CFrame.new(6134.97412109375, 164.1680908203125, 667.257568359375)
     elseif _G.Dun == "Sports Stadium Arena" then
         _G.PosMon = CFrame.new(7093.54833984375, 221.96817016601562, 1070.5576171875)
+    elseif _G.Dun == "Cactoo Island Arena" then
+        _G.PosMon = CFrame.new(6330.234375, 189.6277618408203, 6140.89892578125)
+    elseif _G.Dun == "Giant Tree Island Arena" then
+        _G.PosMon = CFrame.new(4818.4912109375, 200.5469512939453, 6771.4248046875)
+    elseif _G.Dun == "Punk Danger Island Arena" then
+        _G.PosMon = CFrame.new(4943.06005859375, 184.05709838867188, 4900.8759765625)
     end
 end
 
@@ -3955,6 +3973,8 @@ end)
 		    _G.MAP = "Dragon Region"
 		elseif _G.Dun == "Dora City Arena" or _G.Dun == "Kimoyo Ward Arena" or _G.Dun == "Sports Stadium Arena" then
 		    _G.MAP = "Hero Academy Region"
+		elseif _G.Dun == "Giant Tree Island Arena" or _G.Dun == "Cactoo Island Arena" or _G.Dun == "Punk Danger Island Arena" then
+		    _G.MAP = "Piece Region"
 		end
 		print(_G.MAP)
 		CheckDun()
@@ -4087,6 +4107,27 @@ end)
 	    repeat wait()
             TP(CFrame.new(7093.54833984375, 221.96817016601562, 1070.5576171875))
         until (Vector3.new(7093.54833984375, 221.96817016601562, 1070.5576171875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 
+	    Clip = false
+	end)
+	tel1:Button("Cactoo Island Arena",function()
+	    Clip = true
+	    repeat wait()
+            TP(CFrame.new(6330.234375, 189.6277618408203, 6140.89892578125))
+        until (Vector3.new(6330.234375, 189.6277618408203, 6140.89892578125)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 
+	    Clip = false
+	end)
+	tel1:Button("Giant Tree Island Arena",function()
+	    Clip = true
+	    repeat wait()
+            TP(CFrame.new(4818.4912109375, 200.5469512939453, 6771.4248046875))
+        until (Vector3.new(4818.4912109375, 200.5469512939453, 6771.4248046875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 
+	    Clip = false
+	end)
+	tel1:Button("Punk Danger Island Arena",function()
+	    Clip = true
+	    repeat wait()
+            TP(CFrame.new(4943.06005859375, 184.05709838867188, 4900.8759765625))
+        until (Vector3.new(4943.06005859375, 184.05709838867188, 4900.8759765625)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 
 	    Clip = false
 	end)
 	
