@@ -3967,7 +3967,7 @@ end)
 	    _G.Auto_Farm_Dun = vu
 	end)
 	
-	local All_Dungeon = { "Tree Village Arena","Ninja War Battlefield Arena","Shonin Exams Arena","Bell Games Arena","Planet Niran Arena","Power Tournament Arena","Dora City Arena","Kimoyo Ward Arena","Sports Stadium Arena" }
+	local All_Dungeon = { "Tree Village Arena","Ninja War Battlefield Arena","Shonin Exams Arena","Bell Games Arena","Planet Niran Arena","Power Tournament Arena","Dora City Arena","Kimoyo Ward Arena","Sports Stadium Arena","Cactoo Island Arena","Giant Tree Island Arena","Punk Danger Island Arena" }
 	
 	local Select_Dungeon = page1:Drop("Select Dungeon",false,All_Dungeon,function(Value)
 		_G.Dun = Value
