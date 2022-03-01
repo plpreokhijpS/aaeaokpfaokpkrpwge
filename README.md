@@ -4239,7 +4239,7 @@ spawn(function()
                                 v.HumanoidRootPart.CanCollide = false
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                            until v.Humanoid.Health <= 0 or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
+                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
                             wait(1.5)
                         end)
                     end
