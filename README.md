@@ -4228,7 +4228,7 @@ spawn(function()
                 wait(1)
                 repeat wait()
                     TP(_G.PosMon)
-                until (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 
+                until (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or _G.Auto_Farm == false
                 wait(1)
                 game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
             elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
@@ -4239,7 +4239,7 @@ spawn(function()
                                 v.HumanoidRootPart.CanCollide = false
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                            until v.Humanoid.Health <= 0 or not v.Parent or not v or _G.Auto_Farm == false and _G.Auto_Farm_Dun == false or _G.Auto_Farm == false and _G.Auto_Farm_Dun == nil or  _G.Auto_Farm == nil and _G.Auto_Farm_Dun == false
+                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false
                             wait(1.5)
                         end)
                     end
@@ -4256,7 +4256,7 @@ spawn(function()
                     repeat game:GetService("RunService").Stepped:wait(0.3)
                         TP(v.HumanoidRootPart.CFrame*CFrame.new(0,-3,0))
                         game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                    until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v or not v.Parent
+                    until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v.Parent
                     wait(1.5)
                 else
                     TP(CFrame.new(2587.525390625, 166.47804260253906, 3267.5615234375))
