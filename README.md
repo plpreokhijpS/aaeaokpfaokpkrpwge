@@ -4156,45 +4156,35 @@ local function hold(keyCode, time)
     task.wait(time)
     vim:SendKeyEvent(false, keyCode, false, game)
 end
-
-spawn(function()
-    while wait(5) do
-        if game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.LeaveArena.Visible == false then
-            _G.KO = true
-        elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
-            _G.KO = false
+   
             spawn(function()
                 while wait(3) do
-                    if _G.Key_X and _G.KO == false then
+                    if _G.Key_X and _G.KO == false and game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
                         hold(Enum.KeyCode.X, 1)
                     end
                 end
             end)
             spawn(function()
                 while wait(3) do
-                    if _G.Key_C and _G.KO == false then
+                    if _G.Key_C and _G.KO == false and game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
                         hold(Enum.KeyCode.C, 1)
                     end
                 end
             end)
             spawn(function()
                 while wait(3) do
-                    if _G.Key_V and _G.KO == false then
+                    if _G.Key_V and _G.KO == false and game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
                         hold(Enum.KeyCode.V, 1)
                     end
                 end
             end)
             spawn(function()
                 while wait(3) do
-                    if _G.Key_B and _G.KO == false then
+                    if _G.Key_B and _G.KO == false and game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
                         hold(Enum.KeyCode.B, 1)
                     end
                 end
             end)
-        end
-    end
-end)
-
 
 spawn(function()
     while wait(0.5) do
@@ -4230,6 +4220,7 @@ spawn(function()
     while wait(.3) do
         if _G.Auto_Farm or _G.Auto_Farm_Dun then
             if game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.LeaveArena.Visible == false then
+                _G.KO = true
                 if _G.Auto_Farm_Dun then
                 elseif _G.Auto_Farm then
                     CheckQuest()
@@ -4241,6 +4232,7 @@ spawn(function()
                 wait(1)
                 game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
             elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
+                _G.KO = false
                     for i,v in pairs(game:GetService("Workspace").WORLD[_G.MAP].Arenas[_G.Dun].Enemies:GetChildren()) do
                         pcall(function()
                             repeat game:GetService("RunService").Stepped:wait(0.3)
