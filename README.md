@@ -3,7 +3,7 @@ spawn(function()
         pcall(function()
             for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
                 if v.Name == "ScriptEditor" then
-                    game.Players.LocalPlayer:Kick("\nDark Dex ;-;\nเหมือนหล่อเหมือนเจ๋ง โธ่เอ้ยย!")
+                    -- game.Players.LocalPlayer:Kick("\nDark Dex ;-;\nเหมือนหล่อเหมือนเจ๋ง โธ่เอ้ยย!")
                 end
             end
         end)
@@ -4243,7 +4243,7 @@ spawn(function()
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
                             until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false
-                            wait(1.5)
+                            wait(0.5)
                         end)
                     end
             end
@@ -4271,9 +4271,23 @@ spawn(function()
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
                             until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm_Dun == false
-                            wait(1.5)
+                            wait(0.5)
                         end)
                     end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait(.3) do
+        if _G.AutoCollect then
+            for i,v in pairs(game:GetService("Workspace").FX:GetChildren()) do
+                pcall(function()
+                    if v.CanCollide == true then
+                        v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    end
+                end)
             end
         end
     end
@@ -4288,7 +4302,7 @@ spawn(function()
                         TP(v.HumanoidRootPart.CFrame*CFrame.new(0,-3,0))
                         game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
                     until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v.Parent
-                    wait(1.5)
+                    wait(0.5)
                 else
                     TP(CFrame.new(2587.525390625, 166.47804260253906, 3267.5615234375))
                 end
