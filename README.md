@@ -4228,7 +4228,7 @@ spawn(function()
                 wait(1)
                 repeat wait()
                     TP(_G.PosMon)
-                until (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or _G.Auto_Farm == false
+                until (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
                 wait(1)
                 game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
             elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
@@ -4239,7 +4239,7 @@ spawn(function()
                                 v.HumanoidRootPart.CanCollide = false
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false
+                            until v.Humanoid.Health <= 0 or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
                             wait(1.5)
                         end)
                     end
