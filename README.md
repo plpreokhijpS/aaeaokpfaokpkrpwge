@@ -3964,12 +3964,18 @@ end)
 	page1:Line()
 	
 	page1:Toggle("AutoFarm Dungeon",false,function(vu)
-	    _G.Auto_Farm_Dun = vu
+	    if _G.Dun == nil or _G.MAP == nil then     
+	    else
+	        _G.Auto_Farm_Dun = vu
+	    end
 	end)
 	
 	local All_Dungeon = { "Tree Village Arena","Ninja War Battlefield Arena","Shonin Exams Arena","Bell Games Arena","Planet Niran Arena","Power Tournament Arena","Dora City Arena","Kimoyo Ward Arena","Sports Stadium Arena","Cactoo Island Arena","Giant Tree Island Arena","Punk Danger Island Arena" }
 	
 	local Select_Dungeon = page1:Drop("Select Dungeon",false,All_Dungeon,function(Value)
+	    _G.Dun = nil
+	    _G.MAP = nil
+	    wait(0.2)
 		_G.Dun = Value
 		print(_G.Dun)
 		if _G.Dun == "Tree Village Arena" or _G.Dun == "Ninja War Battlefield Arena" or _G.Dun == "Shonin Exams Arena" then
@@ -4218,28 +4224,53 @@ end)
 
 spawn(function()
     while wait(.3) do
-        if _G.Auto_Farm or _G.Auto_Farm_Dun then
+        if _G.Auto_Farm then
             if game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.LeaveArena.Visible == false then
                 _G.KO = true
-                if _G.Auto_Farm_Dun then
-                elseif _G.Auto_Farm then
-                    CheckQuest()
+                CheckQuest()
+                TP(_G.PosMon)
+                wait(1)
+                if (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 2 then
+                    game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
                 end
-                wait(1)
-                repeat wait()
-                    TP(_G.PosMon)
-                until (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
-                wait(1)
-                game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
             elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
-                _G.KO = false
                     for i,v in pairs(game:GetService("Workspace").WORLD[_G.MAP].Arenas[_G.Dun].Enemies:GetChildren()) do
                         pcall(function()
+                            wait(0.5)
+                            _G.KO = false
                             repeat game:GetService("RunService").Stepped:wait(0.3)
                                 v.HumanoidRootPart.CanCollide = false
                                 TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
                                 game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false or _G.Auto_Farm_Dun == false
+                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm == false
+                            wait(1.5)
+                        end)
+                    end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait(.3) do
+        if _G.Auto_Farm_Dun then
+            if game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.LeaveArena.Visible == false then
+                _G.KO = true
+                TP(_G.PosMon)
+                wait(1)
+                if (_G.PosMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 2 then
+                    game:GetService("ReplicatedStorage").Remotes.JoinLeaveArena:FireServer(_G.Dun,true)
+                end
+            elseif game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.ArenaJoiner.JoinArena.Visible == false then
+                    for i,v in pairs(game:GetService("Workspace").WORLD[_G.MAP].Arenas[_G.Dun].Enemies:GetChildren()) do
+                        pcall(function()
+                            wait(0.5)
+                            _G.KO = false
+                            repeat game:GetService("RunService").Stepped:wait(0.3)
+                                v.HumanoidRootPart.CanCollide = false
+                                TP(v.HumanoidRootPart.CFrame*CFrame.new(0,0,5))
+                                game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
+                            until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Farm_Dun == false
                             wait(1.5)
                         end)
                     end
