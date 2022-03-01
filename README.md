@@ -4296,15 +4296,15 @@ end)
 spawn(function()
     while wait(.3) do
         if _G.Auto_Farm_Gem then -- HumanoidRootPart
-            for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-                if v.Name == "Samurai" then
+            for i,v in pairs(game:GetService("Workspace")["SPAWNED_CHESTS"]:GetChildren()) do
+                if tostring(v.PrimaryPart) == "Center" then
                     repeat game:GetService("RunService").Stepped:wait(0.3)
-                        TP(v.HumanoidRootPart.CFrame*CFrame.new(0,-3,0))
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Part.Position).Magnitude > 3 then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Part.CFrame
+                        end
                         game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                    until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v.Parent
-                    wait(0.5)
-                else
-                    TP(CFrame.new(2587.525390625, 166.47804260253906, 3267.5615234375))
+                    until _G.Auto_Farm_Gem == false or not v.Parent
+                    wait(1.5)
                 end
             end
         end
