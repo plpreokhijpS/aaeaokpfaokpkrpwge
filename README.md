@@ -3819,7 +3819,7 @@ end
 
 function CheckQuest()
     local OP = game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.Level.Text
-    local Lv = string.match(tostring(OP), "%d")
+    local Lv = tonumber(string.match(tostring(OP), "%d"))
     if Lv >= 0 and Lv < 10 then
         _G.Dun = "Tree Village Arena"
         _G.PosMon = CFrame.new(2419.483154296875, 174.59156799316406, 2962.316650390625)
