@@ -3818,7 +3818,8 @@ end
 
 
 function CheckQuest()
-    local Lv = game.Players.LocalPlayer.leaderstats.Level.Value
+    local OP = game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.Level.Text
+    local Lv = string.match(tostring(OP), "%d")
     if Lv >= 0 and Lv < 10 then
         _G.Dun = "Tree Village Arena"
         _G.PosMon = CFrame.new(2419.483154296875, 174.59156799316406, 2962.316650390625)
@@ -4299,12 +4300,9 @@ spawn(function()
             for i,v in pairs(game:GetService("Workspace")["SPAWNED_CHESTS"]:GetChildren()) do
                 if tostring(v.PrimaryPart) == "Center" then
                     repeat game:GetService("RunService").Stepped:wait(0.3)
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Part.Position).Magnitude > 3 then
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Part.CFrame
-                        end
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Part.CFrame
                         game:GetService("ReplicatedStorage").Remotes.Melee:FireServer("Melee")
-                    until _G.Auto_Farm_Gem == false or not v.Parent
-                    wait(1.5)
+                    until v.Humanoid.Health <= 0 or _G.Auto_Farm_Gem == false or not v.Parent
                 end
             end
         end
