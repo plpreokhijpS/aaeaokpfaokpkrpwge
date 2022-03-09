@@ -4007,6 +4007,9 @@ end)
 	    _G.Auto_Farm_Gem = vu
 	    Tev()
 	end)
+	page1:Toggle("Auto Rebrithz",false,function(vu)
+	    _G.AutoRebrithz = vu
+	end)
 	
 	page2:Label("Setting Farm")
 	
@@ -4275,6 +4278,19 @@ spawn(function()
                             wait(0.5)
                         end)
                     end
+            end
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if _G.AutoRebrithz then
+            local OP = game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.Level.Text
+            local Lv = tonumber(string.match(tostring(OP), "%d+"))
+            if Lv >= 300 then
+                local l__Remotes__4 = game.ReplicatedStorage:WaitForChild("Remotes")
+                l__Remotes__4:WaitForChild("RebirthSignal"):FireServer();
+                l__Remotes__4:WaitForChild("ClientFade"):Fire(true);
             end
         end
     end
