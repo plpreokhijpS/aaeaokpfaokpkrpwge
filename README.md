@@ -4288,9 +4288,7 @@ spawn(function()
             local OP = game:GetService("Players").LocalPlayer.PlayerGui.UI.HotbarArea.Hotbar.Health.Level.Text
             local Lv = tonumber(string.match(tostring(OP), "%d+"))
             if Lv >= 300 then
-                local l__Remotes__4 = game.ReplicatedStorage:WaitForChild("Remotes")
-                l__Remotes__4:WaitForChild("RebirthSignal"):FireServer();
-                l__Remotes__4:WaitForChild("ClientFade"):Fire(true);
+                game:GetService("ReplicatedStorage").Remotes.Rebirth:InvokeServer()
             end
         end
     end
